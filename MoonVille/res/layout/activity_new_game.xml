@@ -76,58 +76,7 @@
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical" >
 
-                <spaceappschallenge.moonville.ui.FontTextView
-                    android:id="@+id/buildingscaletext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Please state your name"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <EditText
-                    android:id="@+id/usercompanyname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#444444"
-                    android:ems="10"
-                    android:imeOptions="actionDone"
-                    android:lines="1"
-                    android:padding="5dp"
-                    android:singleLine="true"
-                    android:text="Moonman"
-                    android:textColor="#ffffff" />
-
-                <spaceappschallenge.moonville.ui.FontTextView
-                    android:id="@+id/FontTextView03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Choose difficulty"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <RadioGroup
-                    android:id="@+id/choosedifficulty"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <RadioButton
-                        android:id="@+id/easyRadio"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:checked="true"
-                        android:text="@string/difficulty_easy"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <RadioButton
-                        android:id="@+id/realisticRadio"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="@string/difficulty_realistic"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-                </RadioGroup>
-
+                
                 <spaceappschallenge.moonville.ui.FontTextView
                     android:id="@+id/FontTextView02"
                     android:layout_width="wrap_content"
@@ -143,25 +92,7 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="fill_horizontal" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical" >
-
-                    <spaceappschallenge.moonville.ui.FontTextView
-                        android:id="@+id/startingbudget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Starting budget: $10.000.000.000" />
-
-                    <spaceappschallenge.moonville.ui.FontTextView
-                        android:id="@+id/startingreputation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Starting reputation: 0%" />
-                </LinearLayout>
+                
             </LinearLayout>
         </LinearLayout>
 
