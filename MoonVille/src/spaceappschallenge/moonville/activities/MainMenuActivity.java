@@ -3,13 +3,11 @@ package spaceappschallenge.moonville.activities;
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
-import spaceappschallenge.moonville.miscellaneous.MoonVille;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
-import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainMenuActivity extends GameActivity {
@@ -18,16 +16,22 @@ public class MainMenuActivity extends GameActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mainmenu);
-		// The following line allows us to share the application context
-		// throughout the application
-		// Other classes can access the context through ApplicationService
+		
+		//Retrieves the menu items from the main menu
+		TextView[] menuitems = new TextView[4];
+		menuitems[0] = (TextView) findViewById(R.id.mm_newgame);
+		menuitems[1] = (TextView) findViewById(R.id.mm_loadgame);
+		menuitems[2] = (TextView) findViewById(R.id.mm_settings);
+		menuitems[3] = (TextView) findViewById(R.id.mm_credits);
+		
+		for(int i=0; i<4; i++) {
+			menuitems[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, 
+					this.getWindowManager().getDefaultDisplay().getHeight()*0.075F);
+			
+		}
+		
 		ApplicationService app = ApplicationService.getInstance();
 		app.setApplicationContext(this.getApplicationContext());
-		CheckBox cb = (CheckBox) findViewById(R.id.cb_background_music);
-		SharedPreferences settings = getSharedPreferences(
-				MoonVille.PREFERENCE_FILE, 0);
-		cb.setChecked(settings.getBoolean(
-				MoonVille.PREFERENCE_BACKGROUND_MUSIC, true));
 	}
 
 	// methods called by onClick property of button in xml
@@ -49,16 +53,6 @@ public class MainMenuActivity extends GameActivity {
 	public void showCreditsScreen(View view) {
 		view.getContext()
 				.startActivity(new Intent(this, CreditsActivity.class));
-	}
-
-	public void toggleBackgroundMusic(View view) {
-		SharedPreferences.Editor editor = getSharedPreferences(
-				MoonVille.PREFERENCE_FILE, 0).edit();
-		CheckBox cb = (CheckBox) view;
-		editor.putBoolean(MoonVille.PREFERENCE_BACKGROUND_MUSIC, cb.isChecked());
-		editor.commit();
-		MoonVille mv = (MoonVille) getApplication();
-		mv.updateSoundState();
 	}
 
 }
