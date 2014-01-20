@@ -16,7 +16,7 @@
     <string name="title_activity_company_info">Company Info</string>
     <string name="title_activity_building_info">Building Info</string>
     <string name="title_activity_credits">Credits </string>
-    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_normal">Normal</string>
     <string name="difficulty_realistic">Realistic</string>
     <string name="title_activity_import_resources">Import Resources</string>
     <string name="title_activity_export_resources">Export resources</string>
@@ -30,6 +30,10 @@
     <string name="required_buildings">Required Buildings:</string>
     <string name="output_resources">Output Resources:</string>
     <string name="title_activity_initial_launch">Initial Launch</string>
-    <string name="title_activity_research">Research Topics:</string>
+    <string name="menu_loadgame">Load Game</string><string name="menu_newgame">New Game</string><string name="menu_credits">Credits</string><string name="title_activity_research">Research Topics:</string>
+    
+    
+    
+    <string name="difficulty_choose">Choose Difficulty</string>
 
 </resources>
