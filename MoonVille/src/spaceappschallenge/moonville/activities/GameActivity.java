@@ -4,6 +4,7 @@ import spaceappschallenge.moonville.miscellaneous.MoonVille;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * Notifies MoonVille each time an activity is opened or closed. This class
@@ -12,7 +13,7 @@ import android.os.Bundle;
  * @author Felix
  *
  */
-public class GameActivity extends Activity
+public class GameActivity extends FragmentActivity
 {
 	
 	public static Typeface NASALISATION_FONT;
