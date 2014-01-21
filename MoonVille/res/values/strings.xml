@@ -35,5 +35,7 @@
     
     
     <string name="difficulty_choose">Choose Difficulty</string>
+    <string name="default_player_name">Moonman</string>
+    <string name="ask_playername">Please state your name</string>
 
 </resources>
