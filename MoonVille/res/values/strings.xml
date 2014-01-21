@@ -38,5 +38,6 @@
     <string name="default_player_name">Moonman</string>
     <string name="ask_playername">Please state your name</string>
     <string name="start_new_company">Start New Company</string>
+    <string name="enable_music">Enable Music</string>
 
 </resources>
