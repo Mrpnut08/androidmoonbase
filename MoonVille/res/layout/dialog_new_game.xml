@@ -3,11 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
+    <spaceappschallenge.moonville.ui.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/menu_newgame"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <spaceappschallenge.moonville.ui.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please state your name"
+                    android:text="@string/ask_playername"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <EditText
@@ -16,11 +23,10 @@
                     android:layout_height="wrap_content"
                     android:background="#444444"
                     android:ems="10"
-                    android:imeOptions="actionDone"
-                    android:lines="1"
+                    android:inputType="textPersonName"
+               		android:lines="1"
                     android:padding="5dp"
-                    android:singleLine="true"
-                    android:text="Moonman"
+                    android:text="@string/default_player_name"
                     android:textColor="#ffffff" />
 
                 <spaceappschallenge.moonville.ui.FontTextView
@@ -31,13 +37,12 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <RadioGroup
-                    android:id="@+id/choosedifficulty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
 
                     <RadioButton
-                        android:id="@+id/normalRadio"
+                        android:id="@+id/ngd_normal_radiobtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
@@ -46,7 +51,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RadioButton
-                        android:id="@+id/realisticRadio"
+                        android:id="@+id/ngd_realistic_radiobtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"

@@ -1,6 +1,7 @@
 package spaceappschallenge.moonville.activities;
 
 import spaceappschallenge.moonville.R;
+import spaceappschallenge.moonville.dialog.NewGameDialog;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
 import android.content.Intent;
@@ -46,8 +47,7 @@ public class MainMenuActivity extends GameActivity {
 	}
 
 	public void showNewGameScreen(View view) {
-		view.getContext()
-				.startActivity(new Intent(this, NewGameActivity.class));
+		new NewGameDialog().show(this.getSupportFragmentManager(), "NewGame");
 	}
 
 	public void showCreditsScreen(View view) {
