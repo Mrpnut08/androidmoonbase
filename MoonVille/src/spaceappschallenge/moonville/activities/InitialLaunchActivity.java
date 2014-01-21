@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.support.v4.app.NavUtils;
+//import android.support.v4.app.NavUtils;
 
 public class InitialLaunchActivity extends GameActivity {
 
@@ -57,7 +57,7 @@ public class InitialLaunchActivity extends GameActivity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			NavUtils.navigateUpFromSameTask(this);
+			//NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
