@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -56,8 +57,7 @@ public class BaseOverviewActivity extends GameActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		SharedPreferences.Editor editor = getSharedPreferences(
-				MoonVille.PREFERENCE_FILE, 0).edit();
+		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 		final HorizontalScrollView hScroll = (HorizontalScrollView) findViewById(R.id.moonsurface_hscrollview);
 		final ScrollView vScroll = (ScrollView) findViewById(R.id.moonsurface_vscrollview);
 		editor.putInt(PREFERENCE_SCROLL_X, hScroll.getScrollX());
@@ -71,8 +71,7 @@ public class BaseOverviewActivity extends GameActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		final SharedPreferences settings = getSharedPreferences(
-				MoonVille.PREFERENCE_FILE, 0);
+		final SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 		final HorizontalScrollView hScroll = (HorizontalScrollView) findViewById(R.id.moonsurface_hscrollview);
 		final ScrollView vScroll = (ScrollView) findViewById(R.id.moonsurface_vscrollview);
 		// Don't know why, but using post is the only way to make this work.
