@@ -1,8 +1,8 @@
 package spaceappschallenge.moonville.activities;
 
 import spaceappschallenge.moonville.R;
-import spaceappschallenge.moonville.dialog.NewGameDialog;
-import spaceappschallenge.moonville.dialog.SettingsDialog;
+import spaceappschallenge.moonville.dialogs.NewGameDialog;
+import spaceappschallenge.moonville.dialogs.SettingsDialog;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
 import android.content.Intent;

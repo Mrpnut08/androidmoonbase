@@ -1,4 +1,4 @@
-package spaceappschallenge.moonville.dialog;
+package spaceappschallenge.moonville.dialogs;
 
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.activities.NewGameActivity;
