@@ -7,6 +7,7 @@ import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +18,10 @@ public class MainMenuActivity extends GameActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//Loads the preset settings the first time.
+		PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+		
 		setContentView(R.layout.activity_mainmenu);
 		
 		//Retrieves the menu items from the main menu

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 
 /**
  * Plays background music while any activity is opened. All activities should
@@ -16,9 +17,7 @@ import android.os.Handler;
  * 
  */
 public class MoonVille extends Application {
-
-	public static String PREFERENCE_FILE = "preferences";
-	public static String PREFERENCE_BACKGROUND_MUSIC = "moonvile_background_music";
+	public static String PREFERENCE_BACKGROUND_MUSIC = "pref_music";
 
 	private MediaPlayer player = null;
 	private int currentActivityCount = 0;
@@ -61,8 +60,8 @@ public class MoonVille extends Application {
 	private Runnable backgroundSoundRunnable = new Runnable() {
 		@Override
 		public void run() {
-			SharedPreferences settings = getSharedPreferences(PREFERENCE_FILE,
-					0);
+			SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(appContext);
+			
 			if (currentActivityCount > 0
 					&& settings.getBoolean(PREFERENCE_BACKGROUND_MUSIC, true)) {
 				if (player == null) {
