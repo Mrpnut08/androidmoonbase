@@ -118,6 +118,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="spaceappschallenge.moonville.activities.GameActivity" />
         </activity>
+        <activity android:screenOrientation="sensorLandscape" android:name=".activities.LoadGameActivity"></activity>
     </application>
 
 </manifest>
