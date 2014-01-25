@@ -41,7 +41,7 @@ public class MoonBase implements Serializable {
 		moonBase.setActive(true);
 		moonBase.setConstructed(true);
 		this.constructedBuildings.add(moonBase);
-		this.gameDetails = GameDetails.getInstance();
+		//this.gameDetails = GameDetails.getInstance();
 	}
 
 	/**
@@ -51,10 +51,7 @@ public class MoonBase implements Serializable {
 	 * @return
 	 */
 	public boolean canSpend(int expenditure) {
-		if (expenditure <= money) {
-			return true;
-		} else
-			return false;
+		return (expenditure <= money);
 	}
 
 	/**
