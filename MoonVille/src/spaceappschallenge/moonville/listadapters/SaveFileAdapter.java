@@ -1,9 +1,11 @@
 package spaceappschallenge.moonville.listadapters;
 
 import java.io.File;
-import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 import spaceappschallenge.moonville.R;
+import spaceappschallenge.moonville.domain.GameDetails;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +20,7 @@ public class SaveFileAdapter extends BaseAdapter {
 	
 	public SaveFileAdapter(Context context) {
 		this.context = context;
-		this.save_slots = this.context.getExternalFilesDir(null).listFiles(new FileFilter() {
-			
-			@Override
-			public boolean accept(File pathname) {
-				return (pathname.isDirectory() && pathname.getName().startsWith("SaveSlot"));
-			}
-		});
+		this.save_slots = this.context.getExternalFilesDir(null).listFiles();
 	}
 
 	@Override
@@ -45,10 +41,14 @@ public class SaveFileAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		try {
 		TextView number,name,difficulty,turn;
+		GameDetails save_meta;
 		
-		//new File(this.save_slots[position],"savemeta.xml");
-		
+		ObjectInputStream input_stream = new ObjectInputStream(new FileInputStream(this.save_slots[position]));
+		save_meta = (GameDetails) input_stream.readObject();
+		input_stream.close();
 		
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 		convertView = inflater.inflate(R.layout.listitem_savefile, parent, false);
@@ -60,8 +60,11 @@ public class SaveFileAdapter extends BaseAdapter {
 		
 		number.setText(String.valueOf(position));
 		name.setText(this.save_slots[position].getName());
-		
+		difficulty.setText(save_meta.getDifficultyLevel());
 		return convertView;
+		} catch (Exception err){
+			return null;
+		}
 	}
 	
 }
