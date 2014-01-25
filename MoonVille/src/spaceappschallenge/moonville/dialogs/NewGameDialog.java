@@ -3,6 +3,7 @@ package spaceappschallenge.moonville.dialogs;
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.activities.NewGameActivity;
 import spaceappschallenge.moonville.activities.SaveGameActivity;
+import spaceappschallenge.moonville.domain.Difficulty;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -60,7 +61,7 @@ public class NewGameDialog extends DialogFragment implements DialogInterface.OnC
 		
 		//Stored the inputed information in the intent.
 		i.putExtra("playername", playername);
-		i.putExtra("hardmode", this.difficulty.isChecked());
+		i.putExtra("difficulty", (this.difficulty.isChecked())? Difficulty.DIF_HARD : Difficulty.DIF_MED);
 		
 		//Start the NewGameActivity using the intent.
 		this.startActivity(i);
