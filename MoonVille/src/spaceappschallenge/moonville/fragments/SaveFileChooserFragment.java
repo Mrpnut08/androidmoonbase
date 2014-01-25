@@ -3,6 +3,7 @@ package spaceappschallenge.moonville.fragments;
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.listadapters.SaveFileAdapter;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,9 @@ public class SaveFileChooserFragment extends ListFragment{
 	@Override
 	public void onStart() {
 		super.onStart();
+		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
 		this.setListAdapter(new SaveFileAdapter(this.getActivity()));
+		}
 	}
 	
 	public int getListSize() {
