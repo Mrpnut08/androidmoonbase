@@ -24,7 +24,6 @@ public class NewGameActivity extends GameActivity {
 	}
 
 	public void startNewGame(View view) {
-		gameDetails = GameDetails.getInstance();
 		initModel();
 		showInitialLaunchScreen(view);
 		//showBaseOverviewScreen(view);
