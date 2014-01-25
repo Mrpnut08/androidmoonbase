@@ -2,6 +2,7 @@ package spaceappschallenge.moonville.dialogs;
 
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.activities.NewGameActivity;
+import spaceappschallenge.moonville.activities.SaveGameActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -46,7 +47,7 @@ public class NewGameDialog extends DialogFragment implements DialogInterface.OnC
 	public void onClick(DialogInterface dialog, int which) {
 		
 		//Create intent that calls NewGameActivity.
-		Intent i = new Intent(this.getActivity(),NewGameActivity.class);
+		Intent i = new Intent(this.getActivity(),SaveGameActivity.class);
 		
 		//Retrieve the player name from the EditText view and trim any extra spaces.
 		String playername = this.playername.getText().toString();

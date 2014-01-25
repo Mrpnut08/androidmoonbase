@@ -119,6 +119,7 @@
                 android:value="spaceappschallenge.moonville.activities.GameActivity" />
         </activity>
         <activity android:screenOrientation="sensorLandscape" android:name=".activities.LoadGameActivity"></activity>
+        <activity android:name=".activities.SaveGameActivity"></activity>
     </application>
 
 </manifest>
