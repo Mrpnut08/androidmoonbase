@@ -2,11 +2,13 @@ package spaceappschallenge.moonville.listadapters;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.ObjectInputStream;
 
 import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.domain.GameDetails;
 import android.content.Context;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,27 @@ import android.widget.TextView;
 
 public class SaveFileAdapter extends BaseAdapter {
 	
-	private File[] save_slots;
+	private String[] save_slots;
 	private Context context;
 	
 	public SaveFileAdapter(Context context) {
 		this.context = context;
-		this.save_slots = this.context.getExternalFilesDir(null).listFiles();
+		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			this.save_slots = this.context.getExternalFilesDir(null).list(new FilenameFilter() {
+				
+				@Override
+				public boolean accept(File dir, String filename) {
+					return (filename.endsWith(".sav"));
+				}
+			});
+			
+			if(this.save_slots == null) {
+				this.save_slots = new String[0];
+			}
+		}	else {
+			this.save_slots = new String[0];
+		}
+		
 	}
 
 	@Override
@@ -46,24 +63,28 @@ public class SaveFileAdapter extends BaseAdapter {
 		TextView number,name,difficulty,turn;
 		GameDetails save_meta;
 		
-		ObjectInputStream input_stream = new ObjectInputStream(new FileInputStream(this.save_slots[position]));
+		File save_file = new File (parent.getContext().getExternalFilesDir(null),this.save_slots[position]);
+		ObjectInputStream input_stream = new ObjectInputStream(new FileInputStream(save_file));
 		save_meta = (GameDetails) input_stream.readObject();
 		input_stream.close();
 		
 		LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-		convertView = inflater.inflate(R.layout.listitem_savefile, parent, false);
+		View view = inflater.inflate(R.layout.listitem_savefile, parent, false);
 		
-		number = (TextView) convertView.findViewById(R.id.lisf_number);
-		name = (TextView) convertView.findViewById(R.id.lisf_name);
-		difficulty = (TextView) convertView.findViewById(R.id.lisf_difficulty);
-		turn = (TextView) convertView.findViewById(R.id.lisf_turn);
+		number = (TextView) view.findViewById(R.id.lisf_number);
+		name = (TextView) view.findViewById(R.id.lisf_name);
+		difficulty = (TextView) view.findViewById(R.id.lisf_difficulty);
+		turn = (TextView) view.findViewById(R.id.lisf_turn);
 		
 		number.setText(String.valueOf(position));
-		name.setText(this.save_slots[position].getName());
-		difficulty.setText(save_meta.getDifficultyLevel());
-		return convertView;
+		name.setText(save_meta.getUsername());
+		difficulty.setText(String.valueOf(save_meta.getDifficultyLevel()));
+		turn.setText("Turn " + save_meta.getTurn());
+		
+		return view;
+		
 		} catch (Exception err){
-			return null;
+			return convertView;
 		}
 	}
 	

@@ -20,9 +20,8 @@ public class SaveFileChooserFragment extends ListFragment{
 	@Override
 	public void onStart() {
 		super.onStart();
-		if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+		
 		this.setListAdapter(new SaveFileAdapter(this.getActivity()));
-		}
 	}
 	
 	public int getListSize() {
