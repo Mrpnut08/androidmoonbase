@@ -39,6 +39,7 @@ public class SaveGameActivity extends SaveFileManagerActivity implements OnClick
 			output_stream.close();
 			
 			this.startActivity(new Intent(this,NewGameActivity.class));
+			this.finish();
 			} catch (Exception err) {
 				
 			}
