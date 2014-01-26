@@ -61,7 +61,7 @@ public class NewGameDialog extends DialogFragment implements DialogInterface.OnC
 		
 		//Stored the inputed information in the intent.
 		i.putExtra("playername", playername);
-		i.putExtra("difficulty", (this.difficulty.isChecked())? Difficulty.DIF_HARD : Difficulty.DIF_MED);
+		i.putExtra("difficulty", (this.difficulty.isChecked())? Difficulty.HARD : Difficulty.NORMAL);
 		
 		//Start the NewGameActivity using the intent.
 		this.startActivity(i);

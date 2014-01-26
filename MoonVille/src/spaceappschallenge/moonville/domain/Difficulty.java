@@ -2,14 +2,9 @@ package spaceappschallenge.moonville.domain;
 
 import java.io.Serializable;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.Log;
-
-import spaceappschallenge.moonville.factories.ApplicationService;
-import spaceappschallenge.moonville.factories.MoonBaseManager;
-import spaceappschallenge.moonville.miscellaneous.MoonVille;
 import spaceappschallenge.moonville.R;
+import spaceappschallenge.moonville.miscellaneous.MoonVille;
+import android.content.res.Resources;
 
 /**
  * Provides values based on difficulty level.
@@ -20,9 +15,9 @@ public class Difficulty implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5813235211061576115L;
-	public static final int DIF_EASY = 0;
-	public static final int DIF_MED = 1;
-	public static final int DIF_HARD = 2;
+	public static final int EASY = 0;
+	public static final int NORMAL = 1;
+	public static final int HARD = 2;
 
 	private int researchPoints;
 	private int prospectingLevel;
@@ -35,7 +30,7 @@ public class Difficulty implements Serializable {
 		resources = MoonVille.getContext().getResources();
 		switch (difficultyLevel) {
 
-		case DIF_MED:
+		case NORMAL:
 			this.researchPoints = resources
 					.getInteger(R.integer.difficult_research);
 			this.prospectingLevel = resources
@@ -44,7 +39,7 @@ public class Difficulty implements Serializable {
 			this.launchMass = resources
 					.getInteger(R.integer.difficult_launchMass);
 			break;
-		case DIF_HARD:
+		case HARD:
 			this.researchPoints = resources
 					.getInteger(R.integer.medium_research);
 			this.prospectingLevel = resources
