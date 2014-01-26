@@ -13,17 +13,12 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 public class SaveGameActivity extends SaveFileManagerActivity implements OnClickListener{
-
-	private GameDetails metasave;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.title.setText("Save Game");
 		this.new_file.setOnClickListener(this);
-		
-		this.metasave = new GameDetails(this.getIntent().getStringExtra("playername"),
-										this.getIntent().getIntExtra("difficulty", Difficulty.DIF_MED));
 	}
 
 	@Override
@@ -33,10 +28,15 @@ public class SaveGameActivity extends SaveFileManagerActivity implements OnClick
 		
 		if (filecount < 10) {
 			try {
-			File save_file = new File(this.getExternalFilesDir(null),"Save-"+filecount+".sav");
-			ObjectOutputStream output_stream = new ObjectOutputStream(new FileOutputStream(save_file));
-			output_stream.writeObject(this.metasave);
+			GameDetails metasave = new GameDetails(this.getIntent().getStringExtra("playername"),
+									this.getIntent().getIntExtra("difficulty", Difficulty.NORMAL),
+									"Save-"+filecount+".sav");
+			
+			FileOutputStream save_output = new FileOutputStream(new File(this.getExternalFilesDir(null), metasave.getSaveFile()));
+			ObjectOutputStream output_stream = new ObjectOutputStream(save_output);
+			output_stream.writeObject(metasave);
 			output_stream.close();
+			save_output.close();
 			
 			this.startActivity(new Intent(this,NewGameActivity.class));
 			this.finish();
