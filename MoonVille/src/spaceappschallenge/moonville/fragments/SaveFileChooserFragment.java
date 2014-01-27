@@ -1,6 +1,7 @@
 package spaceappschallenge.moonville.fragments;
 
 import spaceappschallenge.moonville.R;
+import spaceappschallenge.moonville.domain.GameDetails;
 import spaceappschallenge.moonville.interfaces.OnSaveSelectListener;
 import spaceappschallenge.moonville.listadapters.SaveFileAdapter;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class SaveFileChooserFragment extends ListFragment{
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		this.listener.onSaveSelect((String)this.getListAdapter().getItem(position));
+		this.listener.onSaveSelect((GameDetails)this.getListAdapter().getItem(position));
 	}
 	
 	public int getListSize() {

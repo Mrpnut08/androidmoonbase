@@ -43,7 +43,7 @@ public class SaveFileAdapter extends BaseAdapter {
 	
 	@Override
 	public Object getItem(int position) {
-		return this.saves.get(position).getSaveFile();
+		return this.saves.get(position);
 	}
 
 	@Override

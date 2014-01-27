@@ -71,7 +71,7 @@ public class SaveGameActivity extends SaveFileManagerActivity implements
 	}
 
 	@Override
-	public void onSaveSelect(String filename) {
-		this.save(filename);
+	public void onSaveSelect(GameDetails save) {
+		this.save(save.getSaveFile());
 	}
 }

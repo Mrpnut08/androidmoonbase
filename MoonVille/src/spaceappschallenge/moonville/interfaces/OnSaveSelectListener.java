@@ -1,5 +1,7 @@
 package spaceappschallenge.moonville.interfaces;
 
+import spaceappschallenge.moonville.domain.GameDetails;
+
 public interface OnSaveSelectListener {
-	public void onSaveSelect (String filename);
+	public void onSaveSelect (GameDetails save);
 }
