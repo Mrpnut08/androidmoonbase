@@ -6,20 +6,21 @@
     android:orientation="horizontal" >
 
     <spaceappschallenge.moonville.ui.FontTextView
-        android:id="@+id/resourcename"
-        android:layout_width="match_parent"
+        android:id="@+id/lir_resourcename"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Regolith"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:gravity="center_vertical"
+        android:text="Resource" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <spaceappschallenge.moonville.ui.FontTextView
-        android:id="@+id/resourceamount"
-        android:layout_width="match_parent"
+        android:id="@+id/lir_quantity"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_weight="1"
-        android:text="Available amount: 500"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_weight="4"
+        android:gravity="center"
+        android:text="#" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 </LinearLayout>
