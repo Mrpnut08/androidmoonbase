@@ -1,23 +1,14 @@
 package spaceappschallenge.moonville.activities;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 import spaceappschallenge.moonville.R;
-import spaceappschallenge.moonville.R.layout;
-import spaceappschallenge.moonville.R.menu;
 import spaceappschallenge.moonville.domain.Research;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.Researches;
-import spaceappschallenge.moonville.factories.Resources;
-import spaceappschallenge.moonville.listadapters.InitialLaunchListAdapter;
 import spaceappschallenge.moonville.listadapters.ResearchListAdapter;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
