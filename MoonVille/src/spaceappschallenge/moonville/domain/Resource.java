@@ -9,18 +9,31 @@ public class Resource implements Serializable
 	 */
 	private static final long serialVersionUID = -9104023380104564668L;
 	private String name;
-	private double quality;
 	private int importPrice;
 	private int exportPrice;
 	private int weight;
+	private long quantity;
 	
-	public Resource( String name, double quality, int importPrice, int exportPrice, int weight )
-	{
+	public Resource(String name){
 		this.name = name;
-		this.quality = quality;
+		this.importPrice = this.exportPrice = this.weight = 0;
+		this.quantity = 0;
+	}
+	
+	public Resource(String name, int importPrice, int exportPrice, int weight){
+		this.name = name;
 		this.importPrice = importPrice;
 		this.exportPrice = exportPrice;
 		this.weight = weight;
+		this.quantity = 0;
+	}
+	
+	public Resource(String name, long quantity, int importPrice, int exportPrice, int weight){
+		this.name = name;
+		this.importPrice = importPrice;
+		this.exportPrice = exportPrice;
+		this.weight = weight;
+		this.quantity = quantity;
 	}
 	
 	public String getName()
@@ -38,20 +51,16 @@ public class Resource implements Serializable
 		return this.exportPrice;
 	}
 
-	public double getQuality() {
-		return quality;
-	}
-
 	public int getWeight() {
 		return weight;
 	}
 
+	public long getQuantity() {
+		return this.quantity;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setQuality(double quality) {
-		this.quality = quality;
 	}
 
 	public void setImportPrice(int importPrice) {
@@ -66,4 +75,7 @@ public class Resource implements Serializable
 		this.weight = weight;
 	}
 	
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
 }
