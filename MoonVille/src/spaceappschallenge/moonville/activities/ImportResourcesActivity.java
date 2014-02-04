@@ -6,7 +6,6 @@ import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.domain.Resource;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
-import spaceappschallenge.moonville.factories.Resources;
 import spaceappschallenge.moonville.listadapters.ImportResourceListAdapter;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,13 +23,13 @@ public class ImportResourcesActivity extends GameActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_import_resources);
 
-		List<Resource> resources = Resources.getInstance().getAllResources();
-		ImportResourceListAdapter resourceListAdapter = new ImportResourceListAdapter(
-				resources);
+		//List<Resource> resources = Resources.getInstance().getAllResources();
+		//ImportResourceListAdapter resourceListAdapter = new ImportResourceListAdapter(
+		//		resources);
 
 		ListView resourceListView = (ListView) this
 				.findViewById(R.id.importresourceslist);
-		resourceListView.setAdapter(resourceListAdapter);
+		//resourceListView.setAdapter(resourceListAdapter);
 		ApplicationService.setImportResourcesActivity(this);
 		updateUI();
 	}

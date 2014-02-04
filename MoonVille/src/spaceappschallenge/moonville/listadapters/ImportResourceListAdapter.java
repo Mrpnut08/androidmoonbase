@@ -7,7 +7,6 @@ import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.domain.Resource;
 import spaceappschallenge.moonville.factories.ApplicationService;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
-import spaceappschallenge.moonville.factories.Resources;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -84,31 +83,31 @@ public class ImportResourceListAdapter extends BaseAdapter {
 								.findViewById(R.id.importResourceNameTextView))
 								.getText().toString();
 
-						Resource currentResource = Resources
-								.getInstance().getResource(resourceName);
-						if (currentResource == null) {
-							Log.i("null", resourceName + "not found");
-							return;
-						}
-						int unitCost = currentResource.getImportPrice();
-						int maxQuantity = MoonBaseManager.getCurrentMoonBase()
-								.getMoney() / unitCost;// 100=maxAmount
-						Log.i("maxQuantity", "maxQuantity " + maxQuantity);
+						//Resource currentResource = Resources
+						//		.getInstance().getResource(resourceName);
+						//if (currentResource == null) {
+						//	Log.i("null", resourceName + "not found");
+						//	return;
+						//}
+						//int unitCost = currentResource.getImportPrice();
+						//int maxQuantity = MoonBaseManager.getCurrentMoonBase()
+						//		.getMoney() / unitCost;// 100=maxAmount
+						//Log.i("maxQuantity", "maxQuantity " + maxQuantity);
 						float position = (float) progress / 100;
 						Log.i("position", "position " + position);
-						int quantity = (int) (position * maxQuantity);
-						Log.i("quantity", "quantity " + quantity);
+						//int quantity = (int) (position * maxQuantity);
+						//Log.i("quantity", "quantity " + quantity);
 
-						((TextView) convertView
-								.findViewById(R.id.resourceQuantityTextView))
-								.setText("" + quantity);
+						//((TextView) convertView
+						//		.findViewById(R.id.resourceQuantityTextView))
+						//		.setText("" + quantity);
 
-						int totalCost = unitCost * quantity;
-						((TextView) convertView
-								.findViewById(R.id.resourceCostTextView))
-								.setText("" + totalCost);
+						//int totalCost = unitCost * quantity;
+						//((TextView) convertView
+						//		.findViewById(R.id.resourceCostTextView))
+						//		.setText("" + totalCost);
 
-						Log.i("yes", "quantity set " + quantity);
+						//Log.i("yes", "quantity set " + quantity);
 
 					}
 				});
@@ -126,30 +125,30 @@ public class ImportResourceListAdapter extends BaseAdapter {
 				String resourceName = ((TextView) convertView
 						.findViewById(R.id.importResourceNameTextView))
 						.getText().toString();
-				Resource currentResource = Resources.getInstance()
-						.getResource(resourceName);
+				//Resource currentResource = Resources.getInstance()
+				//		.getResource(resourceName);
 
-				int unitCost = currentResource.getImportPrice();
-				int quantity = Integer.parseInt(((TextView) convertView
-						.findViewById(R.id.resourceQuantityTextView)).getText()
-						.toString());
-				int totalCost = unitCost * quantity;
+				//int unitCost = currentResource.getImportPrice();
+				//int quantity = Integer.parseInt(((TextView) convertView
+				//		.findViewById(R.id.resourceQuantityTextView)).getText()
+				//		.toString());
+				//int totalCost = unitCost * quantity;
 				Toast toast;
-				if (MoonBaseManager.getCurrentMoonBase().spend(totalCost)) {
-					ArrayList<SerializablePair<Resource,Integer>> newList = new ArrayList<SerializablePair<Resource,Integer>>();
-					newList.add(new SerializablePair<Resource,Integer>(Resources.getInstance().getResource(resourceName), quantity));
+				//if (MoonBaseManager.getCurrentMoonBase().spend(totalCost)) {
+				//	ArrayList<SerializablePair<Resource,Integer>> newList = new ArrayList<SerializablePair<Resource,Integer>>();
+				//	newList.add(new SerializablePair<Resource,Integer>(Resources.getInstance().getResource(resourceName), quantity));
 					
-					MoonBaseManager.getCurrentMoonBase().increaseResources(newList);
-					toast = Toast.makeText(v.getContext(), "Spent: "
-							+ totalCost, 5000);
+				//	MoonBaseManager.getCurrentMoonBase().increaseResources(newList);
+				//	toast = Toast.makeText(v.getContext(), "Spent: "
+				//			+ totalCost, 5000);
 
-				} else {
-					toast = Toast.makeText(v.getContext(),
-							"Can't spend so much!", 5000);
-				}
-				toast.show();
+				//} else {
+				//	toast = Toast.makeText(v.getContext(),
+				//			"Can't spend so much!", 5000);
+				//}
+				//toast.show();
 
-				Log.i("cost", " total cost is:" + totalCost);
+				//Log.i("cost", " total cost is:" + totalCost);
 				String budget = "$"
 						+ MoonBaseManager.getCurrentMoonBase().getMoney();
 				try {

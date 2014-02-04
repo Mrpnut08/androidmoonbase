@@ -17,7 +17,6 @@ import spaceappschallenge.moonville.domain.Building;
 import spaceappschallenge.moonville.domain.BuildingDefinition;
 import spaceappschallenge.moonville.domain.Resource;
 import spaceappschallenge.moonville.factories.ApplicationService;
-import spaceappschallenge.moonville.factories.Resources;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 import android.content.Context;
 import android.util.Log;
@@ -91,9 +90,9 @@ public class BuildingXMLParser {
 		String reqdResName = xpp.getAttributeValue(null, "name");
 		int reqdResAmount = Integer.parseInt(xpp.getAttributeValue(null,
 				"amount"));
-		Resource reqdRes = Resources.getInstance().getResource(reqdResName);
-		requiredResources.add(new SerializablePair<Resource, Integer>(reqdRes,
-				reqdResAmount));
+		//Resource reqdRes = Resources.getInstance().getResource(reqdResName);
+		//requiredResources.add(new SerializablePair<Resource, Integer>(reqdRes,
+		//		reqdResAmount));
 		Log.i("XML", "required resource " + reqdResName);
 	}
 
@@ -115,9 +114,9 @@ public class BuildingXMLParser {
 			Log.e("XMLError", "outResAmount");
 		}
 
-		Resource outputRes = Resources.getInstance().getResource(outResName);
-		outputResources.add(new SerializablePair<Resource, Integer>(outputRes,
-				outResAmount));
+		//Resource outputRes = Resources.getInstance().getResource(outResName);
+		//outputResources.add(new SerializablePair<Resource, Integer>(outputRes,
+		//		outResAmount));
 		Log.i("XML", "out resource " + outResName);
 	}
 

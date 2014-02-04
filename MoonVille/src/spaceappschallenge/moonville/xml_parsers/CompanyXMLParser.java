@@ -15,7 +15,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import spaceappschallenge.moonville.domain.ImportCompany;
 import spaceappschallenge.moonville.domain.Resource;
-import spaceappschallenge.moonville.factories.Resources;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 import android.util.Log;
 
@@ -59,8 +58,8 @@ public class CompanyXMLParser {
 		String reqdResName = xpp.getAttributeValue(null, "name");
 		int reqdResAmount = Integer.parseInt(xpp.getAttributeValue(null,
 				"amount"));
-		importResources.add(new SerializablePair(Resources.getInstance().getResource(
-				reqdResName), reqdResAmount));
+		//importResources.add(new SerializablePair(Resources.getInstance().getResource(
+		//		reqdResName), reqdResAmount));
 	}
 
 	// Create "Building" objects by parsing input stream

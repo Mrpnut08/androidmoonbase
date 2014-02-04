@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import spaceappschallenge.moonville.factories.Resources;
+import spaceappschallenge.moonville.factories.ResourceFactory;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 
 public class ImportCompany implements Serializable{
@@ -30,14 +29,14 @@ public class ImportCompany implements Serializable{
 	}
 
 	public int getPayment() {
-		Resources resources = Resources.getInstance();
+		//ResourceFactory resources = ResourceFactory.getInstance();
 
 		int totalMoneySum = 0;
 		for (SerializablePair<Resource, Integer> resource : this.importResources) {
-			Resource resourceDefinition = resources.getResource(resource.first
-					.getName());
-			totalMoneySum += resource.second
-					* resourceDefinition.getExportPrice();// second = amount
+			//Resource resourceDefinition = resources.getResource(resource.first
+			//		.getName());
+			//totalMoneySum += resource.second
+			//		* resourceDefinition.getExportPrice();// second = amount
 		}
 
 		return (int) (this.paymentFactor * totalMoneySum);

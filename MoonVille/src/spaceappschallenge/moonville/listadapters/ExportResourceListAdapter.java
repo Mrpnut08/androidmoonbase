@@ -7,7 +7,6 @@ import spaceappschallenge.moonville.R;
 import spaceappschallenge.moonville.domain.MoonBase;
 import spaceappschallenge.moonville.domain.Resource;
 import spaceappschallenge.moonville.factories.MoonBaseManager;
-import spaceappschallenge.moonville.factories.Resources;
 import spaceappschallenge.moonville.miscellaneous.SerializablePair;
 import android.util.Log;
 import android.view.LayoutInflater;
