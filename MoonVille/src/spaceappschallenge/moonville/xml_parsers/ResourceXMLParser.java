@@ -47,7 +47,6 @@ public class ResourceXMLParser
 		int eventType = xpp.getEventType();
 		Resource resource = null;
 		String name = "";
-		double quality = 0.0;
 		int importPrice = 0;
 		int exportPrice = 0;
 		int weight = 0;
@@ -58,15 +57,13 @@ public class ResourceXMLParser
 				startTagName = xpp.getName();
 				if (startTagName.equals("resource")) {
 					name = xpp.getAttributeValue(null, "name");
-					quality = Double.parseDouble(xpp.getAttributeValue(null,
-							"quality"));
 					importPrice = Integer.parseInt(xpp.getAttributeValue(null,
 							"importPrice"));
 					exportPrice = Integer.parseInt(xpp.getAttributeValue(null,
 							"exportPrice"));
 					weight = Integer.parseInt(xpp.getAttributeValue(null,
 							"weight"));
-					resource = new Resource(name, quality, importPrice,
+					resource = new Resource(name, importPrice,
 							exportPrice, weight);
 					resources.add(resource);
 				}
