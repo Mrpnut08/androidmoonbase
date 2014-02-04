@@ -22,15 +22,16 @@ import android.util.Log;
  * Handles all resources (directly from xml), as well as available resources
  * (what exists in the world).
  */
-public class Resources {
-	private static Resources instance = null;
+public class ResourceFactory{
+	private static ResourceFactory instance = null;
 	protected static Context context;
 	protected ArrayList<Resource> allResources;
 	// protected ArrayList<ResourceDefinition> availableResources;
-	protected InputStream inputStream = null;
+	protected InputStream inputStream;
 
-	protected Resources() {
-		Resources.context = ApplicationService.getInstance()
+	protected ResourceFactory() {
+		
+		ResourceFactory.context = ApplicationService.getInstance()
 				.getApplicationContext();
 		// I think during construction, it should read "allResources" from a
 		// file or db
@@ -64,14 +65,6 @@ public class Resources {
 			Log.e("Resources", "XMLParser could not be instantiated");
 			e.printStackTrace();
 		}
-	}
-
-	public static Resources getInstance() {
-
-		if (Resources.instance == null) {
-			Resources.instance = new Resources();
-		}
-		return Resources.instance;
 	}
 
 	// Setters and Getters
